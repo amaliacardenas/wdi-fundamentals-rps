@@ -40,35 +40,37 @@ function getWinner(playerMove,computerMove) {
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-if(playerMove === computerMove) { 
-winner = "tie"; 
-} 
-else if(playerMove === "rock"){ 
+    if(playerMove === computerMove) { 
+        winner = "tie"; 
+    } 
+    else if(playerMove === "rock"){ 
 
-if(computerMove ==="scissors") { 
-winner = "player"; 
-} 
-else { 
-winner = "computer"; 
-} 
-}
-else if(playerMove === "paper") {
-if(computerMove ==="rock"){ 
-winner = "player"; 
-} 
-else { 
-winner ="computer"; 
-} 
-}
-else if (playerMove === "scissors"){
-if(computerMove === "rock"){
-winner = "computer";    
-}
-else {
-winner = "player";    
-}
-    return winner;
-}
+        if(computerMove ==="scissors") { 
+            winner = "player"; 
+        } 
+        else { 
+            winner = "computer"; 
+        } 
+    }
+    else if(playerMove === "paper") {
+        if(computerMove ==="rock"){ 
+            winner = "player"; 
+        } 
+        else { 
+            winner ="computer"; 
+        } 
+    }
+    else if (playerMove === "scissors"){
+        if(computerMove === "rock"){
+            winner = "computer";    
+        }
+        else {
+            winner = "player";    
+        }
+   
+
+    }
+         return winner;
 }
 
 
@@ -78,28 +80,28 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     while(playerWins < 5 || computerWins < 5){
-	var playerMove = getPlayerMove();
-	var computerMove = getComputerMove();
-	var totalWins = getWinner(playerMove,computerMove);
-	if(totalWins ==='player') {
-		playerWins += 1;
-	} else if(totalWins === 'computer') {
-		computerWins += 1;
-	} else { 
-	 playerWins += 1;
-	 computerWins += 1;
-	}
-console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+       var playerMove = getPlayerMove();
+       var computerMove = getComputerMove();
+       var totalWins = getWinner(playerMove,computerMove);
+       console.log(totalWins)
+       if(totalWins ==='player') {
+          playerWins += 1;
+      } else if(totalWins === 'computer') {
+          computerWins += 1;
+      } else { 
+          playerWins += 1;
+          computerWins += 1;
+      }
+      console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
 
-console.log('The score is currently ' + playerWins + ' to ' + computerWins);
-	}
-	
-if (playerWins === 5 && computerWins < 5) {
+      console.log('The score is currently ' + playerWins + ' to ' + computerWins);
+  }
+
+      if (playerWins == 5 && computerWins < 5) {
         console.log ("Great job, you are the winner");
     } else if (playerWins < 5 && playerWins === 5) {
         console.log("I am sorry, you lost.");
     } else if (computerWins === playerWins) {
         console.log("The game was a tie!");
     }	
-	playToFive();
-}
+    }
